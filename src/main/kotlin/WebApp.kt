@@ -13,5 +13,8 @@ fun main() {
                 )
             )
         }
+        .get("/test") {
+            it.render("test.jte")
+        }
         .start()
 }
