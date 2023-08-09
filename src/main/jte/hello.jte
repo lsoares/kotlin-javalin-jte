@@ -8,3 +8,9 @@ Time: ${new java.util.Date().toString()}.
     ${guess} is
     @if(guess % 2 == 0) even @else odd @endif
 </p>
+
+<ul>
+    @for(String car : cars)
+        <li>${car}</li>
+    @endfor
+</ul>

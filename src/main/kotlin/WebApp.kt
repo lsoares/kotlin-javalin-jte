@@ -7,7 +7,10 @@ fun main() {
     Javalin.create()
         .get("/") {
             it.render(
-                "hello.jte", mapOf("guess" to Random.nextInt(21))
+                "hello.jte", mapOf(
+                    "guess" to Random.nextInt(21),
+                    "cars" to listOf("car1", "car2", "car3")
+                )
             )
         }
         .start()
