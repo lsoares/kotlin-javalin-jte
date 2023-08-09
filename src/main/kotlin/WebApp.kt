@@ -4,7 +4,8 @@ import kotlin.random.Random
 
 fun main() {
     JavalinJte.init()
-    Javalin.create()
+    Javalin
+        .create { it.staticFiles.add("/public") }
         .get("/") {
             it.render(
                 "hello.jte", mapOf(
