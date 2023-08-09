@@ -1,3 +1,3 @@
 Hello jte!
 
-The time is ${System.currentTimeMillis()}.
+Time: ${new java.util.Date().toString()}.
