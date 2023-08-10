@@ -1,5 +1,6 @@
 import io.javalin.Javalin
 import io.javalin.rendering.template.JavalinJte
+import x.Car
 import kotlin.random.Random
 
 fun main() {
@@ -10,7 +11,8 @@ fun main() {
             it.render(
                 "hello.jte", mapOf(
                     "guess" to Random.nextInt(21),
-                    "cars" to listOf("car1", "car2", "car3")
+                    "fruits" to listOf("banana", "orange", "apple"),
+                    "car" to Car(id = "123", title = "Car ABC")
                 )
             )
         }
