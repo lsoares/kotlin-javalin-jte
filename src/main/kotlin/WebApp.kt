@@ -8,7 +8,10 @@ fun main() {
 }
 
 fun myApp(): Javalin = Javalin
-    .create { it.staticFiles.add("/public") }
+    .create {
+        it.staticFiles.add("/public")
+        it.staticFiles.enableWebjars()
+    }
     .get("/") {
         it.render(
             "hello.jte", mapOf(
@@ -20,4 +23,13 @@ fun myApp(): Javalin = Javalin
     }
     .get("/test") {
         it.render("test.jte")
+    }
+    .get("/messages") {
+        it.html(
+            """<ul>
+            <li>hey</li>
+            <li>follow-up email</li>
+            <li>news update</li>
+            </ul>"""
+        )
     }

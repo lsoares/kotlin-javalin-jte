@@ -17,8 +17,7 @@ class HelloTest {
     fun `displays homepage`() {
         myApp().start(1234).use {
             driver.get("http://localhost:1234")
-            val title = driver.findElement(ByText("orange"))
-            assertNotNull(title)
+            assertNotNull(driver.findElement(ByText("orange")))
         }
     }
 
