@@ -7,12 +7,13 @@ fun main() {
     myApp().start()
 }
 
-fun myApp(): Javalin = Javalin
-    .create {
-        it.staticFiles.add("/public")
-        it.staticFiles.enableWebjars()
-    }
-    .get("/") {
+fun myApp(): Javalin {
+    val app = Javalin
+        .create {
+            it.staticFiles.add("/public")
+            it.staticFiles.enableWebjars()
+        }
+    app.get("/") {
         it.render(
             "hello.jte", mapOf(
                 "guess" to Random.nextInt(21),
@@ -21,10 +22,10 @@ fun myApp(): Javalin = Javalin
             )
         )
     }
-    .get("/test") {
+    app.get("/test") {
         it.render("test.jte")
     }
-    .get("/messages") {
+    app.get("/messages") {
         it.html(
             """<ul>
             <li>hey</li>
@@ -33,3 +34,5 @@ fun myApp(): Javalin = Javalin
             </ul>"""
         )
     }
+    return app
+}
