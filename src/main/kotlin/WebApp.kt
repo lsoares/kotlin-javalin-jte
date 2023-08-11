@@ -8,11 +8,10 @@ fun main() {
 }
 
 fun myApp(): Javalin {
-    val app = Javalin
-        .create {
-            it.staticFiles.add("/public")
-            it.staticFiles.enableWebjars()
-        }
+    val app = Javalin.create {
+        it.staticFiles.add("/public")
+        it.staticFiles.enableWebjars()
+    }
     app.get("/") {
         it.render(
             "hello.jte", mapOf(
